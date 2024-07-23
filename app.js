@@ -11,6 +11,7 @@ import {
 } from "./models/astronauts.js";
 
 const app = express();
+const port = (3001)
 
 app.use(express.json());
 
@@ -30,10 +31,18 @@ res.json({
 /* Write a request handler to return the correct response when a `GET` request is received to `/astronauts`. Choose the appropriate 
 function from the imported functions at the top of the `app.js` to get your data. */
 
+app.get("/astronauts", async (req, res) => {
+  res.send(await getAstronauts());
+})
+
 // Task 2
 
 /* Write a request handler to return the correct response and perform the correct action when a `POST` request is received to 
 `/astronauts`. Choose the appropriate function from the imported functions at the top of the `app.js` to perform the action. */
+
+app.post("/astronauts", async (req, res) => {
+  res.status(201).send(await createAstronaut())
+})
 
 // Task 3
 
@@ -56,3 +65,7 @@ listen to requests at the appropriate path. */
 listen to requests at the appropriate path. */
 
 export default app;
+
+app.listen(port, () => {
+  console.log('Listening at http://localhost:3001')
+})

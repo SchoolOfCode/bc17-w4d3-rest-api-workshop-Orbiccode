@@ -8,6 +8,7 @@
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "dev": "nodemon bin/www.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
